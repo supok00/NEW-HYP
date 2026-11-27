@@ -5,3 +5,6 @@
 
 # 외부 소재 원본 캐시 (tools/make-media.sh 가 받음)
 .media-cache/
+
+# 사용자가 직접 받아 넣는 외부 소재 원본 (make-media.sh가 읽음, git 제외)
+media-inbox/
