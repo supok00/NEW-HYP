@@ -5,6 +5,7 @@ hypkorea.com 복원본)의 내용과 이미지를 바탕으로 디자인과 구�
 
 - 공개 주소: https://supok00.github.io/NEW-HYP/ (GitHub Pages, `main` 브랜치 루트)
 - 작성일: 2026-11-27
+- 버전별 변경 내용과 결정 근거: [CHANGELOG.md](CHANGELOG.md) — **수정 전에 먼저 확인**
 
 ## 바뀐 점
 
