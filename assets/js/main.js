@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 아래로 스크롤하면 숨기고, 위로 올리면 다시 보여 콘텐츠를 가리지 않게 한다
       const goingDown = y > lastY && y > 400;
       header.classList.toggle("hide", goingDown && !document.body.classList.contains("menu-open"));
+      document.body.classList.toggle("hdr-hide", header.classList.contains("hide"));
     }
     document.querySelector(".float")?.classList.toggle("show", y > 600);
     lastY = y;
@@ -155,6 +156,33 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.disabled = false;
       }
     });
+  });
+
+  /* 회사소개 목차: 현재 보고 있는 섹션 강조 */
+  const subLinks = [...document.querySelectorAll(".subnav a")];
+  if (subLinks.length) {
+    const secs = subLinks.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+    const markActive = () => {
+      const y = window.scrollY + window.innerHeight * 0.3;
+      let cur = secs[0];
+      secs.forEach(s => { if (s.offsetTop <= y) cur = s; });
+      subLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + cur.id));
+    };
+    window.addEventListener("scroll", markActive, { passive: true });
+    markActive();
+  }
+
+  /* 사업실적 분류 필터 */
+  document.querySelectorAll(".filter").forEach(group => {
+    const btns = [...group.querySelectorAll("button")];
+    btns.forEach(b => b.addEventListener("click", () => {
+      btns.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      const f = b.dataset.filter;
+      document.querySelectorAll(".project").forEach(p => {
+        p.hidden = !(f === "all" || p.dataset.cat === f);
+        p.classList.add("in");   // 숨겼다 다시 보일 때 등장 애니메이션 대기 상태로 남지 않게
+      });
+    }));
   });
 
   /* 현재 페이지 메뉴 표시 */
