@@ -15,6 +15,8 @@ mkdir -p "$OUT/video" "$OUT/poster"
 # 모든 배경 영상에 같은 톤 — 채도 살짝 낮추고 따뜻하게, 브랜드 골드와 어울리게
 GRADE="eq=saturation=0.88:contrast=1.04:brightness=-0.01,colorbalance=rs=0.03:gs=0.01:bs=-0.04:rm=0.02:bm=-0.02"
 XF=0.7   # 장면 사이 크로스페이드(초)
+# 방역 영상 전용 — 차갑고 맑은 톤 (위생·청결 느낌). 다른 영상은 따뜻한 GRADE
+GRADE_COOL="eq=saturation=0.85:contrast=1.06:brightness=0.01,colorbalance=rs=-0.03:gs=0.0:bs=0.04:rh=-0.02:bh=0.02"
 
 # make_loop 출력이름 원본 "시작 길이" ...
 # 장면 시작점은 ffmpeg scene 검출(select=gt(scene,0.3))로 찾은 컷 사이 구간에서 골랐다.
@@ -51,7 +53,7 @@ make_loop_multi() {
   for seg in "$@"; do
     read -r id ss len <<<"$seg"
     inputs+=(-ss "$ss" -t "$len" -i "$(fetch "$id")")
-    filters+="[$i:v]fps=25,scale=1280:720:flags=lanczos,setsar=1,$GRADE,format=yuv420p,settb=AVTB,setpts=PTS-STARTPTS[v$i];"
+    filters+="[$i:v]fps=25,scale=1280:720:flags=lanczos,setsar=1,${LOOP_GRADE:-$GRADE},format=yuv420p,settb=AVTB,setpts=PTS-STARTPTS[v$i];"
     i=$((i+1))
   done
   read -r _ _ len <<<"$1"; offset=$(echo "$len - $XF" | bc); prev="v0"
@@ -87,8 +89,9 @@ if [ "$MEDIA" = "stock" ]; then
   # 호텔·인력: 트레이를 든 스태프 → 라테 아트 → 바텐더 골드 셰이커 → 에스프레소 스팀 — 서비스 디테일 위주
   # (v1.5.0까지 쓰던 프런트 체크인 36736은 인물·색감이 어색하다는 피드백으로 제외)
   make_loop_multi manpower "813 3.5 6" "41858 1 5" "4173 6 5" "3575 3 5"
-  # 방역: 전문 장비 스팀 청소 → 패브릭 청소 → 정돈된 객실(결과)
-  make_loop_multi disinfection "45041 3 5" "34661 1 5" "4030 4 5.5"
+  # 방역: 어두운 바닥에 깔리는 미스트 → 문손잡이 소독 스프레이 → 실험관 소독액 → 모던한 욕실 (결과)
+  # (v1.6.0까지의 베이지 소파 스팀 청소는 투박해 보인다는 피드백으로 교체)
+  LOOP_GRADE="$GRADE_COOL" make_loop_multi disinfection "50957 0.3 5.2" "33583 0.5 6" "17456 2 5" "21766 3 5"
 else
   # 메인: 호텔 라이프스타일 — 수영장 조식 · 풀사이드 · 캔들 · 와인잔 (원본 57초 몽타주에서 발췌)
   make_loop main "$SRC/main_video02.mp4" "14.0 4.6" "21.0 4.6" "35.0 4.6" "50.0 4.6"
@@ -110,8 +113,8 @@ if [ "$MEDIA" = "stock" ]; then
 housekeeping 21906 7.5
 waiter-order 24405 9
 corridor 34613 2.5
-steam-clean 45041 4
-sofa-clean 34661 6
+door-spray 33583 2.5
+lab-drops 17456 6
 room-towels 4030 8.5
 training 42666 2
 workshop 48712 10

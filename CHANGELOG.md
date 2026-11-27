@@ -9,6 +9,23 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
 
 ---
 
+## v1.7.0 — 2026-11-27 · 방역 영상 교체 (차갑고 맑은 톤)
+
+### 변경
+- **방역 배경 영상** — v1.4.0의 베이지 소파 스팀 청소 장면이 투박하다는 피드백으로 교체 (19.1초, 1.7MB)
+  - 어두운 바닥에 깔리는 미스트(50957) → 문손잡이 소독 스프레이(33583) → 실험관에 떨어지는 소독액(17456) → 모던한 욕실 샤워(21766)
+  - 흐름: 공간 전체 방역(포깅 느낌) → 접촉면 소독 → 검증된 소독제 → 깨끗해진 결과
+  - **방역 영상만 차갑고 맑은 톤**(`GRADE_COOL`, 파랑 쪽 보정) — 다른 영상은 따뜻한 톤 유지. 위생·청결 느낌을 살리기 위함
+- **같은 소파 소재를 쓰던 사진도 교체** (영상과 톤 맞춤)
+  | 위치 | 이전 | 이후 |
+  |---|---|---|
+  | 메인 · 호텔·기업 방역 카드 | `stock/steam-clean` (소파 스팀) | `stock/door-spray` (문손잡이 소독) |
+  | 메인 · 방역서비스 카드 | `stock/sofa-clean` (패브릭 청소) | `stock/lab-drops` (실험관 소독액) |
+  | 방역 · 소개 사진 | `stock/steam-clean` | `stock/door-spray` |
+- 45041·34661 사용 중단, `tools/stock.tsv` 갱신 (새 소재 4개 Mixkit Free License 확인 — 라이선스 확인이 안 된 후보 4개는 제외)
+
+---
+
 ## v1.6.0 — 2026-11-27 · 프런트 직원 소재 교체 · 호텔·인력 영상 재구성
 
 ### 변경
@@ -52,7 +69,7 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
 - **배경 영상 3개를 외부 무료 소재로 교체** (`tools/make-media.sh`, 소재 목록 `tools/stock.tsv`)
   - 메인: 커튼을 여는 실루엣 → 우아한 호텔 복도 → 객실 패닝 → 호텔 조식 (19.7초)
   - 호텔·인력: 프런트 체크인 → 셰프 플레이팅 → 엘레강트 바 (14.6초) — v1.6.0에서 교체
-  - 방역: 전문 장비 스팀 청소 → 패브릭 청소 → 정돈된 객실 (14.1초)
+  - 방역: 전문 장비 스팀 청소 → 패브릭 청소 → 정돈된 객실 (14.1초) — v1.7.0에서 교체
 - **사진 교체** — 같은 소재 영상에서 뽑은 정지 이미지 13장(`img/stock/`, 영상과 색감 통일)
 - **타이포그래피**
   - 큰 제목(hero, 섹션 제목, CTA, 인용문, 연혁 연도)을 한글 세리프 **Noto Serif KR**(500/600)로 — 호텔·호스피탈리티 톤
@@ -74,12 +91,12 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
   |---|---|---|
   | 메인 · 소개 사진 | `stock/housekeeping` (v1.6.0) | `manpower/se03_bg` |
   | 메인 · 호텔 아웃소싱 카드 | `stock/corridor` | `manpower/slider_bg04` |
-  | 메인 · 호텔·기업 방역 카드 | `stock/steam-clean` | `business_bg01` |
+  | 메인 · 호텔·기업 방역 카드 | `stock/door-spray` (v1.7.0) | `business_bg01` |
   | 메인 · 서비스 인력 양성 카드 | `stock/training` | `business_bg02` |
   | 메인 · 자산관리 카드 | `stock/skyline-meeting` | `business_bg03` |
   | 메인 · 채용대행 카드 | `stock/handshake` | `business_bg04` |
   | 메인 · 호텔학교 카드 | `stock/workshop` | `manpower/slider_bg01` |
-  | 메인 · 방역서비스 카드 | `stock/sofa-clean` | `service_bg01` |
+  | 메인 · 방역서비스 카드 | `stock/lab-drops` (v1.7.0) | `service_bg01` |
   | 메인 · 서울 룸 메이드 카드 | `stock/room-towels` | `service_bg05` |
   | 메인 · 골프 카드 / 인력 · 골프 카드 | `stock/golf-hotel` | `manpower/slider_bg03` |
   | 메인 CTA / 인력 CTA | `stock/bar` | `company/main_bg` / `manpower/se02_bg` |
@@ -88,7 +105,7 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
   | 회사소개 · CTA | `stock/handshake` | `company/history_bg` |
   | 인력 · 소개 사진 | `stock/workshop` | `manpower/se03_bg` |
   | 인력 · 호텔 카드 | `stock/boutique-room` | `manpower/se04_bg01` |
-  | 방역 · 소개 사진 | `stock/steam-clean` | `service_bg01` |
+  | 방역 · 소개 사진 | `stock/door-spray` (v1.7.0) | `service_bg01` |
 
   (원래 파일은 되돌릴 때를 위해 `img/` 에 그대로 남겨 두었다)
 
