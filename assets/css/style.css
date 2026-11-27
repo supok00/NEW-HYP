@@ -231,6 +231,30 @@ body.menu-open .m-menu { opacity: 1; visibility: visible; }
 .breadcrumb a:hover { color: var(--white); }
 .breadcrumb span::before { content: "/"; margin-right: 8px; opacity: .5; }
 
+/* ---------- 사업실적 hero: 실제 고객사 사진 모자이크 ---------- */
+/* 사진 한 장을 크게 늘리면 원본(800px)이 흐려져, 여섯 곳을 칸으로 나눠 실적 자체가 첫 화면이 되게 했다 */
+.hero-mosaic { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 3px; }
+.hero-mosaic figure { position: relative; overflow: hidden; margin: 0; }
+.hero-mosaic img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero.mosaic .hero-media img { animation: tilezoom 16s ease-in-out infinite alternate; }
+.hero-mosaic figure:nth-child(2n) img { animation-delay: -5s; }
+.hero-mosaic figure:nth-child(3n) img { animation-delay: -10s; }
+@keyframes tilezoom { from { transform: scale(1.02); } to { transform: scale(1.12); } }
+.hero-mosaic figcaption {
+  position: absolute; right: 14px; bottom: 12px; z-index: 3; text-align: right; color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .6); line-height: 1.35;
+}
+.hero-mosaic figcaption b { display: block; font-size: 13px; font-weight: 700; }
+.hero-mosaic figcaption span { font-family: var(--font-display); font-size: 12px; font-weight: 600; color: var(--gold-2); }
+/* 글이 놓이는 왼쪽만 어둡게, 오른쪽 칸은 사진이 보이게 */
+.page-hero.mosaic .hero-media::after {
+  background:
+    linear-gradient(90deg, rgba(21, 19, 15, .9) 0%, rgba(21, 19, 15, .62) 45%, rgba(21, 19, 15, .15) 100%),
+    linear-gradient(180deg, rgba(21, 19, 15, .55) 0%, rgba(21, 19, 15, 0) 28%, rgba(21, 19, 15, .55) 100%);
+}
+@media (min-width: 900px) { .hero-mosaic { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); } .hero-mosaic figcaption b { font-size: 15px; } }
+@media (max-width: 899px) { .hero-mosaic figure:nth-child(odd) figcaption { display: none; } }
+
 /* ---------- Marquee ---------- */
 .marquee { overflow: hidden; border-block: 1px solid var(--line); background: var(--white); padding: 22px 0; }
 .marquee-track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
@@ -673,5 +697,5 @@ body.hdr-hide .subnav { top: 0; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
   .intro-media.reveal, .greeting-photo.reveal { clip-path: none; }
-  .intro-media.reveal img, .greeting-photo.reveal img, .page-hero .hero-media img { transform: none; animation: none; }
+  .intro-media.reveal img, .greeting-photo.reveal img, .page-hero .hero-media img, .page-hero.mosaic .hero-media img { transform: none; animation: none; }
 }
