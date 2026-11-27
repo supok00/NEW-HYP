@@ -84,8 +84,9 @@ fetch() {                    # fetch <mixkit id> → 캐시 경로 출력
 if [ "$MEDIA" = "stock" ]; then
   # 메인: 커튼을 여는 실루엣 → 우아한 복도 → 객실 패닝 → 호텔 조식 (하루의 시작 같은 흐름)
   make_loop_multi main "22240 1.5 6" "34613 0 4.8" "4196 3 6" "15642 2 5"
-  # 호텔·인력: 프런트 체크인 → 셰프 플레이팅 → 바 — 사람이 서비스하는 장면 위주
-  make_loop_multi manpower "36736 1 6" "13258 2 5" "4043 2 5"
+  # 호텔·인력: 트레이를 든 스태프 → 라테 아트 → 바텐더 골드 셰이커 → 에스프레소 스팀 — 서비스 디테일 위주
+  # (v1.5.0까지 쓰던 프런트 체크인 36736은 인물·색감이 어색하다는 피드백으로 제외)
+  make_loop_multi manpower "813 3.5 6" "41858 1 5" "4173 6 5" "3575 3 5"
   # 방역: 전문 장비 스팀 청소 → 패브릭 청소 → 정돈된 객실(결과)
   make_loop_multi disinfection "45041 3 5" "34661 1 5" "4030 4 5.5"
 else
@@ -106,7 +107,8 @@ if [ "$MEDIA" = "stock" ]; then
       -vf "eq=saturation=0.92:contrast=1.03,colorbalance=rs=0.02:bs=-0.03,format=yuvj444p" -q:v 3 "$OUT/stock/$name.jpg"
     sips -s format avif -s formatOptions 62 "$OUT/stock/$name.jpg" --out "$OUT/stock/$name.avif" >/dev/null
   done <<'LIST'
-frontdesk 36736 2.0
+housekeeping 21906 7.5
+waiter-order 24405 9
 corridor 34613 2.5
 steam-clean 45041 4
 sofa-clean 34661 6

@@ -9,6 +9,20 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
 
 ---
 
+## v1.6.0 — 2026-11-27 · 프런트 직원 소재 교체 · 호텔·인력 영상 재구성
+
+### 변경
+- v1.4.0에서 넣은 **프런트 체크인 소재(Mixkit 36736)를 전부 제외** — 인물 사진·색감이 어색하고 같은 인물이 세 곳에 반복된다는 피드백
+  | 위치 | 이전 | 이후 |
+  |---|---|---|
+  | 메인 · "단순한 인력 파견이 아닌…" 소개 사진 | 프런트 직원 (36736) | 흰 침구 위 수건에 로즈메리를 올리는 하우스키핑 손 (`stock/housekeeping`, 21906) |
+  | 회사소개 · 인사말 사진 | 같은 프런트 직원 | 레스토랑에서 주문받는 웨이터 (`stock/waiter-order`, 24405) |
+  | 호텔·인력 배경 영상 | 프런트 체크인 → 셰프 → 바 | 트레이를 든 카페 바 스태프 → 라테 아트 클로즈업 → 바텐더 골드 셰이커 → 에스프레소 스팀 (18.9초) |
+- 세 곳 모두 서로 다른 소재 — 같은 인물·장면이 페이지를 넘어 반복되지 않게 함
+- 셰프 소재(13258)도 인력 영상에서 빠지며 사용 중단. `tools/stock.tsv` 갱신 (새 소재 6개 모두 Mixkit Free License 확인)
+
+---
+
 ## v1.5.0 — 2026-11-27 · 제목 서체 교체 (명조 → Wanted Sans)
 
 ### 변경
@@ -37,7 +51,7 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
   (푸터 Contact의 "온라인 상담 신청", 각 페이지 CTA로도 진입 가능)
 - **배경 영상 3개를 외부 무료 소재로 교체** (`tools/make-media.sh`, 소재 목록 `tools/stock.tsv`)
   - 메인: 커튼을 여는 실루엣 → 우아한 호텔 복도 → 객실 패닝 → 호텔 조식 (19.7초)
-  - 호텔·인력: 프런트 체크인 → 셰프 플레이팅 → 엘레강트 바 (14.6초)
+  - 호텔·인력: 프런트 체크인 → 셰프 플레이팅 → 엘레강트 바 (14.6초) — v1.6.0에서 교체
   - 방역: 전문 장비 스팀 청소 → 패브릭 청소 → 정돈된 객실 (14.1초)
 - **사진 교체** — 같은 소재 영상에서 뽑은 정지 이미지 13장(`img/stock/`, 영상과 색감 통일)
 - **타이포그래피**
@@ -58,7 +72,7 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
 
   | 페이지 · 위치 | 외부 소재 (현재) | 되돌릴 원래 파일 |
   |---|---|---|
-  | 메인 · 소개 사진 | `stock/frontdesk` | `manpower/se03_bg` |
+  | 메인 · 소개 사진 | `stock/housekeeping` (v1.6.0) | `manpower/se03_bg` |
   | 메인 · 호텔 아웃소싱 카드 | `stock/corridor` | `manpower/slider_bg04` |
   | 메인 · 호텔·기업 방역 카드 | `stock/steam-clean` | `business_bg01` |
   | 메인 · 서비스 인력 양성 카드 | `stock/training` | `business_bg02` |
@@ -70,7 +84,7 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
   | 메인 · 골프 카드 / 인력 · 골프 카드 | `stock/golf-hotel` | `manpower/slider_bg03` |
   | 메인 CTA / 인력 CTA | `stock/bar` | `company/main_bg` / `manpower/se02_bg` |
   | 회사소개 · hero | `stock/skyline-meeting` | `company/main_bg` |
-  | 회사소개 · 인사말 사진 | `stock/frontdesk` | `business_bg05` |
+  | 회사소개 · 인사말 사진 | `stock/waiter-order` (v1.6.0) | `business_bg05` |
   | 회사소개 · CTA | `stock/handshake` | `company/history_bg` |
   | 인력 · 소개 사진 | `stock/workshop` | `manpower/se03_bg` |
   | 인력 · 호텔 카드 | `stock/boutique-room` | `manpower/se04_bg01` |
