@@ -41,6 +41,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img, video, svg { display: block; max-width: 100%; }
+/* build.py가 AVIF용으로 감싼 <picture>는 레이아웃에서 투명하게 — img가 부모의 직계 자식처럼 동작 */
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 ul, ol { list-style: none; }
@@ -176,7 +178,7 @@ body.menu-open .m-menu { opacity: 1; visibility: visible; }
   position: relative; min-height: clamp(640px, 100svh, 1080px); display: flex; align-items: flex-end;
   color: var(--white); overflow: hidden; background: var(--ink);
 }
-.hero-media { position: absolute; inset: 0; }
+.hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-media::after {
   content: ""; position: absolute; inset: 0;
@@ -623,6 +625,29 @@ body.hdr-hide .subnav { top: 0; }
 .float a:hover, .float button:hover { transform: translateY(-3px); }
 @media (min-width: 900px) { .float { right: 32px; bottom: 32px; } }
 
+/* ---------- Media motion ---------- */
+/* hero 정지 이미지: 천천히 줌아웃 (영상이 없는 페이지에도 움직임을 준다) */
+.page-hero .hero-media img { animation: kenburns 14s var(--ease) both; }
+@keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+/* hero 위 필름 그레인 — 저해상도 원본과 영상 압축 흔적을 눈에 덜 띄게 하고 질감을 준다 */
+.hero-media::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-media::after { z-index: 2; }
+/* 큰 사진: 스크롤 시 마스크가 열리며 등장 (clip-path reveal) */
+.intro-media.reveal, .greeting-photo.reveal {
+  opacity: 1; transform: none;
+  clip-path: inset(14% 10% 14% 10% round var(--radius));
+  transition: clip-path 1.4s var(--ease);
+}
+.intro-media.reveal img, .greeting-photo.reveal img { transform: scale(1.18); transition: transform 1.8s var(--ease); }
+.intro-media.reveal.in, .greeting-photo.reveal.in { clip-path: inset(0 0 0 0 round var(--radius)); }
+.intro-media.reveal.in img, .greeting-photo.reveal.in img { transform: none; }
+/* 카드 사진: 기본은 살짝 차분하게, 올리면 원래 색으로 */
+.card-img .thumb img, .ref-card .thumb img, .project .thumb img { filter: saturate(.86); transition: transform 1s var(--ease), filter .6s var(--ease); }
+.card-img:hover .thumb img, .ref-card:hover .thumb img, .project:hover .thumb img { filter: none; }
+
 /* ---------- Reveal ---------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
@@ -633,4 +658,6 @@ body.hdr-hide .subnav { top: 0; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+  .intro-media.reveal, .greeting-photo.reveal { clip-path: none; }
+  .intro-media.reveal img, .greeting-photo.reveal img, .page-hero .hero-media img { transform: none; animation: none; }
 }

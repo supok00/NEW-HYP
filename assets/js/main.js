@@ -69,6 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })(t0);
   }
 
+  /* 배경 영상: 화면 밖에 있으면 멈춰 배터리·CPU 절약, 데이터 절약 모드면 재생하지 않고 포스터만 */
+  const saveData = navigator.connection && navigator.connection.saveData;
+  document.querySelectorAll("video[autoplay]").forEach(v => {
+    if (saveData || reduce) { v.removeAttribute("autoplay"); v.pause(); if (saveData) v.preload = "none"; return; }
+    new IntersectionObserver(([e]) => { e.isIntersecting ? v.play().catch(() => {}) : v.pause(); }).observe(v);
+  });
+
   /* 움직임 줄이기 설정이면 배경 영상 정지 (포스터만 표시) */
   if (reduce) document.querySelectorAll("video[autoplay]").forEach(v => { v.pause(); v.removeAttribute("autoplay"); });
 

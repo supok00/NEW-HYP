@@ -128,6 +128,18 @@ LAYOUT = """<!doctype html>
 """
 
 
+def with_avif(html):
+    """<img src="x.jpg"> 옆에 x.avif 가 있으면 <picture> 로 감싸 최신 브라우저는 AVIF를 받게 한다.
+    AVIF는 tools/make-media.sh 가 만든다. CSS에서 picture는 display:contents 라 레이아웃에 영향 없다."""
+    def repl(m):
+        tag, src = m.group(0), m.group(1)
+        avif = src[:-4] + ".avif"
+        if not (ROOT / avif).exists():
+            return tag
+        return f'<picture><source srcset="{avif}" type="image/avif">{tag}</picture>'
+    return re.sub(r'<img [^>]*?src="([^"]+\.jpg)"[^>]*>', repl, html)
+
+
 def build():
     tel = "031-756-0449"
     out = []
@@ -148,7 +160,7 @@ def build():
             fnav="".join(f'<li><a href="{h}">{t}</a></li>' for h, t, _ in NAV),
             tel=tel, tel_raw=tel.replace("-", ""),
             i_download=ICON["download"], i_phone=ICON["phone"], i_up=ICON["up"],
-            body=body.strip(),
+            body=with_avif(body.strip()),
         )
         (ROOT / page.name).write_text(html, encoding="utf-8")
         out.append(page.name)

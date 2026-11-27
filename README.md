@@ -30,13 +30,15 @@ src/pages/*.html         페이지 본문 (여기를 고친다)
 tools/build.py           본문 + 공통 헤더·푸터 → 루트 HTML 생성
 assets/css/style.css     전체 스타일 (디자인 토큰은 :root)
 assets/js/main.js        헤더·메뉴·탭·카운터·폼 처리
-img/                     기존 사이트 이미지·영상 + poster/(영상 첫 화면)
+tools/make-media.sh      배경 영상 재편집 + 이미지 최적화(AVIF) — 원본은 ../hypkorea-site/img
+img/                     사진(JPG + 같은 이름 AVIF), video/(배경 영상), poster/(영상 첫 화면)
 HYP.pptx                 회사소개서 (다운로드 링크)
 ```
 
 ## 수정 방법
 
 ```sh
+# 0) 사진·영상을 바꿨다면: bash tools/make-media.sh
 # 1) src/pages/*.html 또는 tools/build.py(헤더·푸터·메뉴) 수정
 python3 tools/build.py          # 2) 루트 HTML 재생성
 python3 -m http.server 8000     # 3) http://localhost:8000 확인
