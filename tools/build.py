@@ -18,7 +18,6 @@ NAV = [
     ("manpower.html", "호텔·인력서비스", "Outsourcing"),
     ("disinfection.html", "방역서비스", "Hygiene"),
     ("result.html", "사업실적", "Track record"),
-    ("form.html", "상담문의", "Contact"),
 ]
 
 ICON = {
@@ -45,6 +44,9 @@ LAYOUT = """<!doctype html>
 <link rel="icon" href="img/favicon.ico">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/main.js" defer></script>
 </head>
@@ -57,7 +59,7 @@ LAYOUT = """<!doctype html>
     <nav class="gnb" aria-label="주 메뉴">{gnb}</nav>
     <div class="header-actions">
       <a class="btn btn-ghost dl" href="HYP.pptx" download>{i_download}회사소개서</a>
-      <a class="btn btn-gold" href="form.html">상담 신청</a>
+      <a class="btn btn-gold cta-btn" href="form.html">상담 신청</a>
       <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="m-menu"><span></span></button>
     </div>
   </div>
@@ -66,7 +68,8 @@ LAYOUT = """<!doctype html>
 <div class="m-menu" id="m-menu">
   <nav aria-label="모바일 메뉴">{mnav}</nav>
   <div class="m-foot">
-    <a class="btn btn-gold" href="tel:{tel_raw}">{i_phone}{tel}</a>
+    <a class="btn btn-gold" href="form.html">상담 신청 {i_arrow}</a>
+    <a class="btn btn-ghost" href="tel:{tel_raw}">{i_phone}{tel}</a>
     <a class="btn btn-ghost" href="HYP.pptx" download>{i_download}회사소개서 다운로드</a>
   </div>
 </div>
@@ -159,7 +162,7 @@ def build():
             mnav="".join(f'<a href="{h}">{t}<small>{e}</small></a>' for h, t, e in NAV),
             fnav="".join(f'<li><a href="{h}">{t}</a></li>' for h, t, _ in NAV),
             tel=tel, tel_raw=tel.replace("-", ""),
-            i_download=ICON["download"], i_phone=ICON["phone"], i_up=ICON["up"],
+            i_download=ICON["download"], i_phone=ICON["phone"], i_up=ICON["up"], i_arrow=ICON["arrow"],
             body=with_avif(body.strip()),
         )
         (ROOT / page.name).write_text(html, encoding="utf-8")

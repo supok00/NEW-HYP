@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* 현재 페이지 메뉴 표시 */
   const here = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".gnb a, .m-menu nav a").forEach(a => {
+  document.querySelectorAll(".gnb a, .m-menu nav a, .header .cta-btn").forEach(a => {
     if (a.getAttribute("href") === here) a.setAttribute("aria-current", "page");
   });
 

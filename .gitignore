@@ -2,3 +2,6 @@
 .DS_Store
 # Office가 문서를 열 때 만드는 잠금 파일 (HYP.pptx 편집 중 생성)
 ~$*
+
+# 외부 소재 원본 캐시 (tools/make-media.sh 가 받음)
+.media-cache/

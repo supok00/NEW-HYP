@@ -14,6 +14,9 @@
 <link rel="icon" href="img/favicon.ico">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/main.js" defer></script>
 </head>
@@ -23,19 +26,20 @@
 <header class="header">
   <div class="container">
     <a class="logo" href="index.html" aria-label="HYP 홈"><img src="img/logo.svg" alt="HYP" width="72" height="34"></a>
-    <nav class="gnb" aria-label="주 메뉴"><a href="company.html">회사소개</a><a href="manpower.html">호텔·인력서비스</a><a href="disinfection.html">방역서비스</a><a href="result.html">사업실적</a><a href="form.html">상담문의</a></nav>
+    <nav class="gnb" aria-label="주 메뉴"><a href="company.html">회사소개</a><a href="manpower.html">호텔·인력서비스</a><a href="disinfection.html">방역서비스</a><a href="result.html">사업실적</a></nav>
     <div class="header-actions">
       <a class="btn btn-ghost dl" href="HYP.pptx" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>회사소개서</a>
-      <a class="btn btn-gold" href="form.html">상담 신청</a>
+      <a class="btn btn-gold cta-btn" href="form.html">상담 신청</a>
       <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="m-menu"><span></span></button>
     </div>
   </div>
 </header>
 
 <div class="m-menu" id="m-menu">
-  <nav aria-label="모바일 메뉴"><a href="company.html">회사소개<small>About</small></a><a href="manpower.html">호텔·인력서비스<small>Outsourcing</small></a><a href="disinfection.html">방역서비스<small>Hygiene</small></a><a href="result.html">사업실적<small>Track record</small></a><a href="form.html">상담문의<small>Contact</small></a></nav>
+  <nav aria-label="모바일 메뉴"><a href="company.html">회사소개<small>About</small></a><a href="manpower.html">호텔·인력서비스<small>Outsourcing</small></a><a href="disinfection.html">방역서비스<small>Hygiene</small></a><a href="result.html">사업실적<small>Track record</small></a></nav>
   <div class="m-foot">
-    <a class="btn btn-gold" href="tel:0317560449"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>031-756-0449</a>
+    <a class="btn btn-gold" href="form.html">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn-ghost" href="tel:0317560449"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>031-756-0449</a>
     <a class="btn btn-ghost" href="HYP.pptx" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg>회사소개서 다운로드</a>
   </div>
 </div>
@@ -75,7 +79,7 @@
 <section class="section">
   <div class="container intro">
     <div class="intro-media reveal">
-      <picture><source srcset="img/manpower/se03_bg.avif" type="image/avif"><img src="img/manpower/se03_bg.jpg" alt="HYP 호텔 서비스 현장" loading="lazy"></picture>
+      <picture><source srcset="img/stock/frontdesk.avif" type="image/avif"><img src="img/stock/frontdesk.jpg" alt="HYP 프런트 서비스" loading="lazy"></picture>
       <div class="intro-badge"><b>2016</b><span>호텔 운영 경험으로 시작한 HYP</span></div>
     </div>
     <div class="intro-body">
@@ -103,31 +107,31 @@
     </div>
     <div class="bento">
       <a class="bento-card reveal" href="manpower.html">
-        <picture><source srcset="img/manpower/slider_bg04.avif" type="image/avif"><img class="bg" src="img/manpower/slider_bg04.jpg" alt="" loading="lazy"></picture>
+        <picture><source srcset="img/stock/corridor.avif" type="image/avif"><img class="bg" src="img/stock/corridor.jpg" alt="" loading="lazy"></picture>
         <span class="num">01</span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         <h3>호텔 아웃소싱</h3>
         <ul class="tags"><li>객실 관리</li><li>식음 서비스 위탁</li><li>프런트·도어 발렛</li><li>시설·보안·미화·주차</li><li>커뮤니티 서비스</li></ul>
       </a>
       <a class="bento-card reveal d1" href="disinfection.html">
-        <picture><source srcset="img/business_bg01.avif" type="image/avif"><img class="bg" src="img/business_bg01.jpg" alt="" loading="lazy"></picture>
+        <picture><source srcset="img/stock/steam-clean.avif" type="image/avif"><img class="bg" src="img/stock/steam-clean.jpg" alt="" loading="lazy"></picture>
         <span class="num">02</span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         <h3>호텔·기업 방역</h3>
         <ul class="tags"><li>무해 살균 소독수</li><li>방역 인증서 발급</li></ul>
       </a>
       <a class="bento-card reveal d2" href="manpower.html">
-        <picture><source srcset="img/business_bg02.avif" type="image/avif"><img class="bg" src="img/business_bg02.jpg" alt="" loading="lazy"></picture>
+        <picture><source srcset="img/stock/training.avif" type="image/avif"><img class="bg" src="img/stock/training.jpg" alt="" loading="lazy"></picture>
         <span class="num">03</span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         <h3>서비스 인력 양성</h3>
         <ul class="tags"><li>호텔서비스 연계교육</li><li>룸 메이드 양성</li></ul>
       </a>
       <a class="bento-card reveal" href="manpower.html">
-        <picture><source srcset="img/business_bg03.avif" type="image/avif"><img class="bg" src="img/business_bg03.jpg" alt="" loading="lazy"></picture>
+        <picture><source srcset="img/stock/skyline-meeting.avif" type="image/avif"><img class="bg" src="img/stock/skyline-meeting.jpg" alt="" loading="lazy"></picture>
         <span class="num">04</span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         <h3>자산관리</h3>
         <ul class="tags"><li>운용계획 수립·운영</li><li>임대차·임대료 관리</li><li>공실 관리</li><li>월간·연간 보고</li></ul>
       </a>
       <a class="bento-card reveal d1" href="manpower.html">
-        <picture><source srcset="img/business_bg04.avif" type="image/avif"><img class="bg" src="img/business_bg04.jpg" alt="" loading="lazy"></picture>
+        <picture><source srcset="img/stock/handshake.avif" type="image/avif"><img class="bg" src="img/stock/handshake.jpg" alt="" loading="lazy"></picture>
         <span class="num">05</span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         <h3>채용대행 · 헤드헌팅</h3>
         <ul class="tags"><li>고객사 채용대행</li><li>전문 경영인 헤드헌팅</li><li>채용 시간·비용 절감</li></ul>
@@ -214,15 +218,15 @@
     <div class="cards c3">
       <article class="card-img reveal"><div class="thumb"><picture><source srcset="img/service_bg03.avif" type="image/avif"><img src="img/service_bg03.jpg" alt="" loading="lazy"></picture></div>
         <div class="body"><span class="badge">Manpower</span><h3>인력서비스</h3><p>인재개발, 채용대행, 인력 아웃소싱까지 전문 운영 인력으로 최상의 품질과 서비스를 제공합니다.</p></div></article>
-      <article class="card-img reveal d1"><div class="thumb"><picture><source srcset="img/manpower/slider_bg01.avif" type="image/avif"><img src="img/manpower/slider_bg01.jpg" alt="" loading="lazy"></picture></div>
+      <article class="card-img reveal d1"><div class="thumb"><picture><source srcset="img/stock/workshop.avif" type="image/avif"><img src="img/stock/workshop.jpg" alt="" loading="lazy"></picture></div>
         <div class="body"><span class="badge">Education</span><h3>호텔학교</h3><p>파라다이스그룹·계원예술대학 PSH 호텔리어 양성과정으로 호텔리어를 배출하고 현장과 연계합니다.</p></div></article>
-      <article class="card-img reveal d2"><div class="thumb"><picture><source srcset="img/service_bg01.avif" type="image/avif"><img src="img/service_bg01.jpg" alt="" loading="lazy"></picture></div>
+      <article class="card-img reveal d2"><div class="thumb"><picture><source srcset="img/stock/sofa-clean.avif" type="image/avif"><img src="img/stock/sofa-clean.jpg" alt="" loading="lazy"></picture></div>
         <div class="body"><span class="badge">Hygiene</span><h3>방역서비스</h3><p>교육·양성한 전문 방역 인력으로 전국 어디서나 시설물 바이러스에 대응하는 방역을 제공합니다.</p></div></article>
       <article class="card-img reveal"><div class="thumb"><picture><source srcset="img/service_bg04.avif" type="image/avif"><img src="img/service_bg04.jpg" alt="" loading="lazy"></picture></div>
         <div class="body"><span class="badge">Social</span><h3>새터민 교육</h3><p>북한 이주민을 대상으로 룸 메이드 양성교육을 진행하고, 교육생을 현장에 배출합니다.</p></div></article>
-      <article class="card-img reveal d1"><div class="thumb"><picture><source srcset="img/service_bg05.avif" type="image/avif"><img src="img/service_bg05.jpg" alt="" loading="lazy"></picture></div>
+      <article class="card-img reveal d1"><div class="thumb"><picture><source srcset="img/stock/room-towels.avif" type="image/avif"><img src="img/stock/room-towels.jpg" alt="" loading="lazy"></picture></div>
         <div class="body"><span class="badge">Supply</span><h3>서울 룸 메이드 확보</h3><p>서울 지역 룸 메이드 경력자를 확보해 성수기 인력 수요를 빠르게 지원합니다.</p></div></article>
-      <article class="card-img reveal d2"><div class="thumb"><picture><source srcset="img/manpower/slider_bg03.avif" type="image/avif"><img src="img/manpower/slider_bg03.jpg" alt="" loading="lazy"></picture></div>
+      <article class="card-img reveal d2"><div class="thumb"><picture><source srcset="img/stock/golf-hotel.avif" type="image/avif"><img src="img/stock/golf-hotel.jpg" alt="" loading="lazy"></picture></div>
         <div class="body"><span class="badge">Golf</span><h3>골프장 운영 지원</h3><p>골프장 캐디 등 골프·리조트 현장에 필요한 서비스 인력을 공급합니다.</p></div></article>
     </div>
   </div>
@@ -232,7 +236,7 @@
 <section class="section tight">
   <div class="container">
     <div class="cta reveal">
-      <picture><source srcset="img/company/main_bg.avif" type="image/avif"><img class="bg" src="img/company/main_bg.jpg" alt="" loading="lazy"></picture>
+      <picture><source srcset="img/stock/bar.avif" type="image/avif"><img class="bg" src="img/stock/bar.jpg" alt="" loading="lazy"></picture>
       <div>
         <h2>운영 인력 고민,<br>HYP와 상의하세요</h2>
         <p>현장 규모와 필요 업무를 알려 주시면 맞춤 제안서를 무료로 보내 드립니다.</p>
@@ -256,7 +260,7 @@
       </div>
       <div class="footer-col">
         <h4>Menu</h4>
-        <ul><li><a href="company.html">회사소개</a></li><li><a href="manpower.html">호텔·인력서비스</a></li><li><a href="disinfection.html">방역서비스</a></li><li><a href="result.html">사업실적</a></li><li><a href="form.html">상담문의</a></li></ul>
+        <ul><li><a href="company.html">회사소개</a></li><li><a href="manpower.html">호텔·인력서비스</a></li><li><a href="disinfection.html">방역서비스</a></li><li><a href="result.html">사업실적</a></li></ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>

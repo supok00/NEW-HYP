@@ -30,8 +30,9 @@ src/pages/*.html         페이지 본문 (여기를 고친다)
 tools/build.py           본문 + 공통 헤더·푸터 → 루트 HTML 생성
 assets/css/style.css     전체 스타일 (디자인 토큰은 :root)
 assets/js/main.js        헤더·메뉴·탭·카운터·폼 처리
-tools/make-media.sh      배경 영상 재편집 + 이미지 최적화(AVIF) — 원본은 ../hypkorea-site/img
-img/                     사진(JPG + 같은 이름 AVIF), video/(배경 영상), poster/(영상 첫 화면)
+tools/make-media.sh      배경 영상·정지 이미지 생성 + 이미지 최적화(AVIF) — MEDIA=original 이면 외부 소재 없이
+tools/stock.tsv          외부 무료 소재 목록 (Mixkit Free License) — 오픈 전 교체 대상
+img/                     사진(JPG + 같은 이름 AVIF), stock/(외부 소재 정지 이미지), video/(배경 영상), poster/(영상 첫 화면)
 HYP.pptx                 회사소개서 (다운로드 링크)
 ```
 
