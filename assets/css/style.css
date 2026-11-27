@@ -336,6 +336,19 @@ body.menu-open .m-menu { opacity: 1; visibility: visible; }
 @media (min-width: 720px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1080px) { .cards.c3 { grid-template-columns: repeat(3, 1fr); } .cards.c4 { grid-template-columns: repeat(4, 1fr); } }
 
+/* ---------- Certificates ---------- */
+.certs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.certs a { display: grid; gap: 6px; }
+.certs .doc {
+  display: block; padding: 14px; margin-bottom: 10px; border-radius: var(--radius-sm); background: var(--cream);
+  transition: background .35s var(--ease), transform .35s var(--ease);
+}
+.certs .doc img { width: 100%; height: auto; aspect-ratio: 512 / 696; object-fit: cover; box-shadow: 0 8px 24px rgba(21, 19, 15, .12); }
+.certs a:hover .doc { background: var(--cream-2); transform: translateY(-4px); }
+.certs b { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; line-height: 1.4; }
+.certs a > span:last-child { font-size: 13px; color: var(--ink-4); }
+@media (min-width: 960px) { .certs { grid-template-columns: repeat(4, 1fr); gap: 24px; } .certs .doc { padding: 20px; } }
+
 /* ---------- Process ---------- */
 .process { display: grid; gap: 12px; counter-reset: step; }
 .step {
