@@ -111,7 +111,7 @@ if [ "$MEDIA" = "stock" ]; then
     sips -s format avif -s formatOptions 62 "$OUT/stock/$name.jpg" --out "$OUT/stock/$name.avif" >/dev/null
   done <<'LIST'
 housekeeping 21906 7.5
-smile-staff 4859 6
+rooftop-man 231 3
 corridor 34613 2.5
 door-spray 33583 2.5
 steam-clean 45041 4

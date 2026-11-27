@@ -9,6 +9,18 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
 
 ---
 
+## v1.8.1 — 2026-11-27 · 인사말 사진을 남성으로
+
+### 변경
+- **회사소개 인사말 사진**: 웃는 여성(4859) → 노을 진 도시를 배경으로 옥상에서 재킷 단추를 채우는 정장 남성(`stock/rooftop-man`, Mixkit 231 · Free License)
+  - 피드백: 인사말은 멋진 남성 사진으로. 비즈니스맨 후보 11개 중 가장 영화 같은 장면으로 선택
+- 4859 사용 중단, `tools/stock.tsv` 갱신
+
+### 확인 필요
+- v1.8.0과 같은 이유로, 인사말 옆 인물 사진은 **대표 본인으로 오해**될 수 있다 (남성 사진이라 더 그렇다). 공개 전 실제 대표 사진으로 교체 권장.
+
+---
+
 ## v1.8.0 — 2026-11-27 · 방역 영상 조정 · 인물 소재를 여성으로
 
 ### 변경
@@ -119,7 +131,7 @@ NEW-HYP 홈페이지의 버전별 변경 내용과 **그때 내린 결정·근�
   | 메인 · 골프 카드 / 인력 · 골프 카드 | `stock/golf-hotel` | `manpower/slider_bg03` |
   | 메인 CTA / 인력 CTA | `stock/bar` | `company/main_bg` / `manpower/se02_bg` |
   | 회사소개 · hero | `stock/skyline-meeting` | `company/main_bg` |
-  | 회사소개 · 인사말 사진 | `stock/smile-staff` (v1.8.0) | `business_bg05` |
+  | 회사소개 · 인사말 사진 | `stock/rooftop-man` (v1.8.1) | `business_bg05` |
   | 회사소개 · CTA | `stock/handshake` | `company/history_bg` |
   | 인력 · 소개 사진 | `stock/workshop` | `manpower/se03_bg` |
   | 인력 · 호텔 카드 | `stock/boutique-room` | `manpower/se04_bg01` |
