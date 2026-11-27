@@ -86,12 +86,12 @@ fetch() {                    # fetch <mixkit id> → 캐시 경로 출력
 if [ "$MEDIA" = "stock" ]; then
   # 메인: 커튼을 여는 실루엣 → 우아한 복도 → 객실 패닝 → 호텔 조식 (하루의 시작 같은 흐름)
   make_loop_multi main "22240 1.5 6" "34613 0 4.8" "4196 3 6" "15642 2 5"
-  # 호텔·인력: 트레이를 든 스태프 → 라테 아트 → 바텐더 골드 셰이커 → 에스프레소 스팀 — 서비스 디테일 위주
-  # (v1.5.0까지 쓰던 프런트 체크인 36736은 인물·색감이 어색하다는 피드백으로 제외)
-  make_loop_multi manpower "813 3.5 6" "41858 1 5" "4173 6 5" "3575 3 5"
+  # 호텔·인력: 고객을 응대하는 여성 직원 → 라테 아트 → 드레스를 고르는 여성 직원 → 카운터 커피 서빙 — 여성 서비스 인력 중심
+  # (v1.5.0 프런트 체크인 36736, v1.6.0 남성 스태프·바텐더 813·4173은 피드백으로 제외)
+  make_loop_multi manpower "51216 1 6" "41858 1 5" "51221 1 6" "23546 3 5"
   # 방역: 어두운 바닥에 깔리는 미스트 → 문손잡이 소독 스프레이 → 실험관 소독액 → 모던한 욕실 (결과)
-  # (v1.6.0까지의 베이지 소파 스팀 청소는 투박해 보인다는 피드백으로 교체)
-  LOOP_GRADE="$GRADE_COOL" make_loop_multi disinfection "50957 0.3 5.2" "33583 0.5 6" "17456 2 5" "21766 3 5"
+  # (v1.7.0의 실험관 장면 17456은 방역과 안 맞는다는 피드백으로 빼고, 소파 스팀 청소를 다시 넣음)
+  LOOP_GRADE="$GRADE_COOL" make_loop_multi disinfection "50957 0.3 5.2" "33583 0.5 6" "45041 3 5" "21766 3 5"
 else
   # 메인: 호텔 라이프스타일 — 수영장 조식 · 풀사이드 · 캔들 · 와인잔 (원본 57초 몽타주에서 발췌)
   make_loop main "$SRC/main_video02.mp4" "14.0 4.6" "21.0 4.6" "35.0 4.6" "50.0 4.6"
@@ -111,10 +111,10 @@ if [ "$MEDIA" = "stock" ]; then
     sips -s format avif -s formatOptions 62 "$OUT/stock/$name.jpg" --out "$OUT/stock/$name.avif" >/dev/null
   done <<'LIST'
 housekeeping 21906 7.5
-waiter-order 24405 9
+smile-staff 4859 6
 corridor 34613 2.5
 door-spray 33583 2.5
-lab-drops 17456 6
+steam-clean 45041 4
 room-towels 4030 8.5
 training 42666 2
 workshop 48712 10
