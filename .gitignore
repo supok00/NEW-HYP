@@ -1,0 +1,4 @@
+# macOS Finder가 폴더마다 생성 — 커밋되면 배포 산출물에 섞임
+.DS_Store
+# Office가 문서를 열 때 만드는 잠금 파일 (HYP.pptx 편집 중 생성)
+~$*

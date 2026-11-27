@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://supok00.github.io/NEW-HYP/sitemap.xml
