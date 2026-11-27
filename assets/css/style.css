@@ -456,19 +456,22 @@ body.menu-open .m-menu { opacity: 1; visibility: visible; }
 @media (min-width: 960px) { .loc-panel { grid-template-columns: 1.6fr 1fr; gap: 56px; } }
 
 /* ---------- CTA band ---------- */
-/* v1.9.1: 사진 위 큰 제목의 검정 배너 → 얇은 크림색 띠. 페이지 끝 안내는 본문보다 가볍게, 버튼만 또렷하게 */
+/* v1.9.2: v1.9.1의 얇은 크기는 유지, 색은 이전의 어두운 톤으로 — 사진 없이 웜 다크 + 아주 옅은 골드 빛으로 차분하게 */
 .cta {
-  border-radius: var(--radius); background: var(--cream); border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse 60% 120% at 100% 50%, rgba(180, 163, 123, .12), transparent 70%),
+    #1d1a16;
   padding: clamp(28px, 3.4vw, 40px) clamp(24px, 4vw, 48px);
-  display: grid; gap: 20px; align-items: center;
+  display: grid; gap: 20px; align-items: center; color: var(--white);
 }
-.cta h2 { font-family: var(--font-display); font-size: clamp(20px, 2vw, 26px); line-height: 1.35; letter-spacing: -.025em; font-weight: 700; color: var(--ink); }
-.cta p { margin-top: 6px; color: var(--ink-3); font-size: 15px; max-width: 560px; }
+.cta h2 { font-family: var(--font-display); font-size: clamp(20px, 2vw, 26px); line-height: 1.35; letter-spacing: -.025em; font-weight: 700; color: var(--white); }
+.cta p { margin-top: 6px; color: rgba(255, 255, 255, .58); font-size: 15px; max-width: 560px; }
 .cta .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
-.cta .tel { font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--ink); font-feature-settings: "tnum"; }
+.cta .tel { font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--gold-2); font-feature-settings: "tnum"; }
 .cta .btn { height: 48px; padding: 0 22px; }
-.cta .btn-ghost { border-color: var(--line); color: var(--ink); background: var(--white); }
-.cta .btn-ghost:hover { border-color: var(--ink); background: var(--white); }
+.cta .btn-ghost { border-color: rgba(255, 255, 255, .25); color: var(--white); background: transparent; }
+.cta .btn-ghost:hover { border-color: var(--white); background: rgba(255, 255, 255, .06); }
 @media (min-width: 960px) { .cta { grid-template-columns: 1fr auto; gap: 40px; } .cta .acts { justify-content: flex-end; } }
 
 /* ---------- Form ---------- */
