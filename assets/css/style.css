@@ -231,6 +231,9 @@ body.menu-open .m-menu { opacity: 1; visibility: visible; }
 .breadcrumb a:hover { color: var(--white); }
 .breadcrumb span::before { content: "/"; margin-right: 8px; opacity: .5; }
 
+/* 사업실적 hero: 제주 히든클리프 전경 한 장 (원본 800px → 살짝 블러를 감춘 색 보정과 오른쪽 위 초점) */
+.hero-hotel .hero-media img { object-position: 50% 35%; filter: saturate(.9) contrast(1.05); }
+
 /* ---------- 사업실적 hero: 실제 고객사 사진 모자이크 ---------- */
 /* 사진 한 장을 크게 늘리면 원본(800px)이 흐려져, 여섯 곳을 칸으로 나눠 실적 자체가 첫 화면이 되게 했다 */
 .hero-mosaic { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 3px; }
