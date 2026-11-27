@@ -72,7 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
   /* 배경 영상: 화면 밖에 있으면 멈춰 배터리·CPU 절약, 데이터 절약 모드면 재생하지 않고 포스터만 */
   const saveData = navigator.connection && navigator.connection.saveData;
   document.querySelectorAll("video[autoplay]").forEach(v => {
-    if (saveData || reduce) { v.removeAttribute("autoplay"); v.pause(); if (saveData) v.preload = "none"; return; }
+    if (saveData || reduce) {
+      v.removeAttribute("autoplay"); v.pause(); if (saveData) v.preload = "none";
+      // 멈춘 영상은 일부 모바일 브라우저에서 poster를 그리지 않아 검게 남는다 → 포스터를 배경으로 깔고 영상은 숨김
+      if (v.poster && v.parentElement) { v.parentElement.style.backgroundImage = `url("${v.poster}")`; v.style.visibility = "hidden"; }
+      return;
+    }
     new IntersectionObserver(([e]) => { e.isIntersecting ? v.play().catch(() => {}) : v.pause(); }).observe(v);
   });
 
